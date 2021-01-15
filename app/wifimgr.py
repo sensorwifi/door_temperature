@@ -60,7 +60,7 @@ def get_connection():
     if not connected:
         connected = start()
     
-    import blynklib_mp as blynklib 
+    import app.blynk_mp as blynklib 
     BLYNK_AUTH = api
     print("Connecting to Blynk server...",api)
     try:
