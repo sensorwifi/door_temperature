@@ -62,7 +62,7 @@ if machine.reset_cause() == machine.DEEPSLEEP_RESET:
      print("BAD BLYNK:")
 else:
     print('power on or hard reset')
-    import app.wifimgr
+    import app.wifimgr as wifimgr
     wlan = wifimgr.get_connection()
     if wlan is None:
          print("Could not initialize the network connection.")
@@ -76,7 +76,7 @@ else:
     ntptime.settime()
     print("Local time after synchronization：%s" %str(time.localtime()))
 
-    import blynklib_mp as blynklib
+    import app.blynklib_mp as blynklib
     f=open('wifi.dat')
     wifidat=f.read()
     ssid, password, api = wifidat.strip("\n").split(";")
@@ -88,12 +88,12 @@ else:
     except:
        print("BAD BLYNK:")
 
-def ota()
+def ota():
  from app.ota_updater import OTAUpdater
 #def download_and_install_update_if_available():
      # o = OTAUpdater('https://github.com/sensorwifi/ota_door')
      #otaUpdater = OTAUpdater('https://github.com/rdehuyss/chicken-shed-mgr', github_src_dir='app', main_dir='app', secrets_file="secrets.py")
- o = OTAUpdater('https://github.com/sensorwifi/ota_door_temperature',  main_dir='app', headers={'Authorization': 'token {}'.format(token)}))
+ o = OTAUpdater('https://github.com/sensorwifi/ota_door_temperature', main_dir='app', headers={'Authorization': 'token {}'.format(token)})
  print(o)
  o.install_update_if_available_after_boot(ssid, password)
  print(update)
