@@ -76,7 +76,7 @@ else:
     ntptime.settime()
     print("Local time after synchronization：%s" %str(time.localtime()))
 
-    import app.blynklib_mp as blynklib
+    import app.blynk_mp as blynklib
     f=open('wifi.dat')
     wifidat=f.read()
     ssid, password, api = wifidat.strip("\n").split(";")
