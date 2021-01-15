@@ -53,7 +53,7 @@ if machine.reset_cause() == machine.DEEPSLEEP_RESET:
     print(api)
     print("Connecting to Blynk server...",api)
     do_connect()
-    import app.blynklib_mp as blynklib
+    import app.blynk_mp as blynklib
     try:
      blynk = blynklib.Blynk(api)
 # return  wlan_sta if connected else None
